@@ -1,4 +1,5 @@
-﻿using Curso.Api.Models;
+﻿using Curso.Api.Filters;
+using Curso.Api.Models;
 using Curso.Api.Models.Usuario;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -27,8 +28,11 @@ namespace Curso.Api.Controllers
 
         [HttpPost]
         [Route("logar")]
-        public IActionResult Logar(LoginViewModelInput loginViewModelInput)
+        [ValidacaoModelStateCustomizado]
+        public async Task<IActionResult> Logar(LoginViewModelInput loginViewModelInput)
         {
+        
+
             return Ok(loginViewModelInput);
         }
 
